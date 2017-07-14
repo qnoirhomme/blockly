@@ -1,0 +1,2194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="image/apple-touch-icon.png">
+    <title>Brain Voyager - Script</title>
+    <!-- This is the viewport tag. If you do not want the website scaled on mobile websites, comment out the following line -->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=0.5, user-scalable=yes">-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+	<style>
+	.w3-theme-gradient {
+	color: #000 !important; background:#3f51b5;
+	background:-webkit-linear-gradient(left,#2196f3 25%,#20295b 75%)}
+	.w3-theme-gradient {
+	color: #000 !important; background:#3f51b5;
+	background:-moz-linear-gradient(right,#2196f3 25%,#20295b 75%)}
+	.w3-theme-gradient {
+	color: #000 !important; background:#3f51b5;
+	background:-o-linear-gradient(right,#2196f3 25%,#20295b 75%)}
+	.w3-theme-gradient {
+	color: #000 !important; background:#3f51b5;
+	background:-ms-linear-gradient(right,#2196f3 25%,#20295b 75%)}
+	.w3-theme-gradient {
+  color: #000 !important; background:#3f51b5;
+  background: linear-gradient(to right,#2196f3 25%,#20295b 75%)}
+</style>
+    <!--[if lt IE 9]><script src="rw_common/themes/media/core/html5.js" type="text/javascript"></script><![endif]-->
+    <!--<link rel="stylesheet" type="text/css" media="all" href="css01.css">-->
+    <!--[if IE 7]><link rel="stylesheet" type="text/css" media="screen" href="rw_common/themes/media/ie7.css" />
+		<![endif]-->
+    <!--[if lte IE 9]><style type="text/css">#pageWrapper{opacity:1.00;}</style><![endif]-->
+    <!--<noscript> -->
+		<!--<style type="text/css">#contentIn #fs, #sidebar #fs, #contentIn div[id*='myExtraContent'], #sidebar div[id*='myExtraContent'] {display: block;}</style> -->
+	<!--	</noscript> -->
+    <!--<link rel="stylesheet" href="simple-slideshow-styles.css">-->
+    <!--<link rel="stylesheet" type="text/css" media="all" href="stacks.css">-->
+    <!--<link rel="stylesheet" type="text/css" media="all" href="index_files/stacks_page_page8.css?rwcache=497446335"> -->
+    <script src="blockly_compressed.js"></script>
+    <script src="blocks_compressed.js"></script>
+	<script src="javascript_compressed.js"></script>
+	<!--<script src="blocks/brainvoyager.js"></script>-->
+	<!--<script src="generators/javascript/brainvoyager.js"></script> -->
+	<!--<script src="blocks/brainvoyager_surface.js"></script> -->
+	<!--<script src="generators/javascript/brainvoyager_surface.js"></script> -->
+    <script src="msg/js/en.js"></script>
+	<script src="msg/js/bv.js"></script>
+	<script src="FileSaver.js"></script>
+	<!--<script src="core/xml.js"></script> -->
+	<!--<script src="core/workspace_svg.js"></script> -->
+    <!--<script src="core/toolbox.js"></script> -->
+	<!-- Google analystics -->
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-90623934-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </head>
+  <body>
+  <div class="w3-container w3-margin-0 w3-padding-0">
+    <!--<div id="pageWrapper">
+      <div id="socialBar">
+        <div class="mediaWidth">
+          <div class="mediaPadding"> </div>
+        </div>
+      </div>
+      <div id="background">
+        <div id="main" class="mediaWidth"> 
+          <header id="headerContainer">
+            <div id="pageHeader">
+              <div id="fs">-->
+			  <div class="w3-container w3-center w3-indigo w3-margin-0 w3-padding-0">
+			  <h1> BrainVoyager </h1>
+			  <h2> Visual Scripting Editor - JavaScript</h2>
+			  <!--<img src="images/BrainVoyager_WebSite_Banner_WithTextBakedIn_1040px.png"
+
+                  alt="Brain Innovation - Home of the BrainVoyager Product Family">-->
+				  </div>
+              <!-- End of Stacks Content --> 
+			  
+			   <!--<table width="100%">
+			   <tr>
+			   <td>-->
+			   <div class="w3-panel">
+	 <button  class="w3-btn w3-indigo w3-hover-blue  w3-round w3-left" id="buttonSave" style="margin-right:15px" onclick="SaveScript()">Save Script</button> 
+	  <input type="file" accept=".xml" class="w3-btn w3-indigo w3-hover-blue  w3-round w3-left" id="input-file" label="Load Script">
+      <select id="loadDemo">
+        <option value="demoscript21.xml">Chapter 2</option>
+        <option value="demoscript3b.xml">Chapter 3</option>
+        <option value="demoscript4a.xml">Chapter 4.3</option>
+        <option value="demoscript4bb.xml">Chapter 4.4</option>
+        <option value="demoscript5.xml">Chapter 5</option>
+        <option value="demoscript6.xml">Chapter 6</option>
+      </select>
+      <input type="button" class="w3-btn w3-indigo w3-hover-blue  w3-round" value="Load Demo" onclick="loadXml()">
+<input type="text" name="search" id="input-search" placeholder="Search.."> 
+        <input type="submit" name="searchbutton" value = "search" class = "button" onclick="SearchToolbox()">
+	 <!--</td>-->
+	 <!--<td>-->
+	 <button class="w3-btn w3-indigo w3-hover-blue  w3-round w3-right" id="buttonClear" onclick="ClearWorkspaceScript()">Clear Workspace</button> 
+	 <!--</td>
+	</tr>	 
+	<tr>-->
+	</div>
+	<div class="w3-row-padding" style="height:100%;">
+	<!--<th> Blocks</th>
+	<th> JavaScript </th>
+    <tr>-->
+	<div  class="w3-half w3-container">
+      <!--<td id="blocklyArea">-->
+            <!--<div id="blocklyDiv" style="height: 800px; width: 800px;"></div>-->
+			<div id="blocklyArea" style="width:100%; height:100%; min-height:600px;">
+			
+			</div>
+	</div>		
+			<!--</td>
+      <td>-->
+	  <div class="w3-half w3-container">
+       <textarea id="textarea" style="width:100%; height:100%; min-height:600px; " class="content" wrap="off"></textarea>
+	   </div>
+      <!--</td>
+    </tr>
+	
+  </table>-->
+  
+  <div id="blocklyDiv" style="position: absolute"></div>
+  
+  <!--
+  <div id="blocklyDiv" style="position: absolute"></div>
+  -->
+</div>
+</div>
+            <!--<div id="navTableWrapper" class="noprint"> </div>-->
+            <div  class="w3-container w3-indigo w3-center w3-margin-0">
+              <!--<div id="breadcrumbcontainer" class="noprint">
+                <ul>
+                  <li>&nbsp;&gt;&nbsp;<a href="index.html">Scripting</a></li>
+                </ul>
+              </div>
+              <div id="footer"> <span id="lastUpdated">Page last updated:
+                  06/10/2016<br>
+                </span> Copyright © 2016 <a href="" rel="self" title="Quentin Noirhomme"
+
+                  style="color: #50A0FF;">Quentin Noirhomme</a> </div>
+				  -->
+				  <h5><a href="index.html">Scripting</a></h5>
+				  <span id="lastUpdated">Page last updated:
+                  14/07/2017 - 
+                </span> Copyright © 2017 <a href="" rel="self" title="Quentin Noirhomme"
+
+                  style="color: #50A0FF;">Quentin Noirhomme</a> 
+            </div>  
+
+<!-- Blockly Toolbox-->
+
+  <xml id="toolbox" style="display: none">
+    <category name="Search Results" colour="160">
+        <label text="No results"></label>
+    </category>
+  <category name="Default" expanded="true" colour="180">
+  <category name="Logic" colour="210">
+      <block type="controls_if"></block>
+      <block type="logic_compare"></block>
+      <block type="logic_operation"></block>
+      <block type="logic_negate"></block>
+      <block type="logic_boolean"></block>
+      <block type="logic_null"></block>
+      <block type="logic_ternary"></block>
+    </category>
+    <category name="Loops" colour="120">
+      <block type="controls_repeat_ext">
+        <value name="TIMES">
+          <shadow type="math_number">
+            <field name="NUM">10</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="controls_whileUntil"></block>
+      <block type="controls_for">
+        <value name="FROM">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="TO">
+          <shadow type="math_number">
+            <field name="NUM">10</field>
+          </shadow>
+        </value>
+        <value name="BY">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="controls_forEach"></block>
+      <block type="controls_flow_statements"></block>
+    </category>
+    <category name="Math" colour="230">
+      <block type="math_number"></block>
+      <block type="math_arithmetic">
+        <value name="A">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="B">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_single">
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">9</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_trig">
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">45</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_constant"></block>
+      <block type="math_number_property">
+        <value name="NUMBER_TO_CHECK">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_round">
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">3.1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_on_list"></block>
+      <block type="math_modulo">
+        <value name="DIVIDEND">
+          <shadow type="math_number">
+            <field name="NUM">64</field>
+          </shadow>
+        </value>
+        <value name="DIVISOR">
+          <shadow type="math_number">
+            <field name="NUM">10</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_constrain">
+        <value name="VALUE">
+          <shadow type="math_number">
+            <field name="NUM">50</field>
+          </shadow>
+        </value>
+        <value name="LOW">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="HIGH">
+          <shadow type="math_number">
+            <field name="NUM">100</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_random_int">
+        <value name="FROM">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="TO">
+          <shadow type="math_number">
+            <field name="NUM">100</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_random_float"></block>
+    </category>
+    <category name="Text" colour="160">
+      <block type="text"></block>
+      <block type="text_join"></block>
+      <block type="text_append">
+        <value name="TEXT">
+          <shadow type="text"></shadow>
+        </value>
+      </block>
+      <block type="text_length">
+        <value name="VALUE">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="text_isEmpty">
+        <value name="VALUE">
+          <shadow type="text">
+            <field name="TEXT"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="text_indexOf">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">{textVariable}</field>
+          </block>
+        </value>
+        <value name="FIND">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="text_charAt">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">{textVariable}</field>
+          </block>
+        </value>
+      </block>
+      <block type="text_getSubstring">
+        <value name="STRING">
+          <block type="variables_get">
+            <field name="VAR">{textVariable}</field>
+          </block>
+        </value>
+      </block>
+      <block type="text_changeCase">
+        <value name="TEXT">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="text_trim">
+        <value name="TEXT">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="text_print">
+        <value name="TEXT">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="text_prompt_ext">
+        <value name="TEXT">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+    </category>
+    </category>
+    <sep></sep>
+    <category name="Variables" colour="330" custom="VARIABLE"></category>
+	<category name="Lists" colour="260">
+      <block type="lists_create_with">
+        <mutation items="0"></mutation>
+      </block>
+      <block type="lists_create_with"></block>
+      <block type="lists_repeat">
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">5</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="lists_length"></block>
+      <block type="lists_isEmpty"></block>
+      <block type="lists_indexOf">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">{listVariable}</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_getIndex">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">{listVariable}</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_setIndex">
+        <value name="LIST">
+          <block type="variables_get">
+            <field name="VAR">{listVariable}</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_getSublist">
+        <value name="LIST">
+          <block type="variables_get">
+            <field name="VAR">{listVariable}</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_split">
+        <value name="DELIM">
+          <shadow type="text">
+            <field name="TEXT">,</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="lists_sort"></block>
+    </category>
+
+    <category name="Functions" colour="290" custom="PROCEDURE"></category>
+	<sep></sep>
+	    <category name="BrainVoyager" colour="45">
+      	  <block type="bv_open_document_var"> </block> 
+	  <block type="bv_activedocument"> </block>
+	  <block type="bv_createprojectfmr">
+	  <value name="filetype">
+			<shadow type="text">
+				<field name="TEXT">DICOM</field>
+			</shadow>
+		</value>
+		<value name="firstfilename">
+			<shadow type="text">
+				<field name="TEXT">firstfilename</field>
+			</shadow>
+		</value>
+		<value name="nrofvolumes">
+		<shadow type="math_number">
+            <field name="NUM">200</field>
+          </shadow>
+		  </value>
+		  <value name="volskip">
+		<shadow type="math_number">
+            <field name="NUM">2</field>
+          </shadow>
+		  </value>
+		  <value name="createAMR">
+		<shadow type="logic_boolean">
+            <field name="BOOL">true</field>
+          </shadow>
+		  </value>
+		  <value name="nrOfSlices">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  <value name="prestc">
+			<shadow type="text">
+				<field name="TEXT">STCfilename</field>
+			</shadow>
+		</value>
+		 <value name="swapBytes">
+		<shadow type="logic_boolean">
+            <field name="BOOL">false</field>
+          </shadow>
+		  </value>
+		  <value name="resx">
+		<shadow type="math_number">
+            <field name="NUM">64</field>
+          </shadow>
+		  </value>
+		  <value name="resY">
+		<shadow type="math_number">
+            <field name="NUM">64</field>
+          </shadow>
+		  </value>
+		  <value name="nrBytes">
+		<shadow type="math_number">
+            <field name="NUM">2</field>
+          </shadow>
+		  </value>
+		  <value name="savingDir">
+			<shadow type="text">
+				<field name="TEXT">directoryname</field>
+			</shadow>
+		</value>
+		</block>
+		 <block type="bv_createprojectmosaicfmr">
+	  <value name="filetype">
+			<shadow type="text">
+				<field name="TEXT">DICOM</field>
+			</shadow>
+		</value>
+		<value name="firstfilename">
+			<shadow type="text">
+				<field name="TEXT">firstfilename</field>
+			</shadow>
+		</value>
+		<value name="nrofvolumes">
+		<shadow type="math_number">
+            <field name="NUM">252</field>
+          </shadow>
+		  </value>
+		  <value name="volskip">
+		<shadow type="math_number">
+            <field name="NUM">2</field>
+          </shadow>
+		  </value>
+		  <value name="createAMR">
+		<shadow type="logic_boolean">
+            <field name="BOOL">true</field>
+          </shadow>
+		  </value>
+		  <value name="nrOfSlices">
+		<shadow type="math_number">
+            <field name="NUM">25</field>
+          </shadow>
+		  </value>
+		  <value name="prestc">
+			<shadow type="text">
+				<field name="TEXT">STCfilename</field>
+			</shadow>
+		</value>
+		 <value name="swapBytes">
+		<shadow type="logic_boolean">
+            <field name="BOOL">false</field>
+          </shadow>
+		  </value>
+		  <value name="mosaicresx">
+		<shadow type="math_number">
+            <field name="NUM">320</field>
+          </shadow>
+		  </value>
+		  <value name="mosaicresy">
+		<shadow type="math_number">
+            <field name="NUM">320</field>
+          </shadow>
+		  </value>
+		  <value name="nrBytes">
+		<shadow type="math_number">
+            <field name="NUM">2</field>
+          </shadow>
+		  </value>
+		  <value name="savingDir">
+			<shadow type="text">
+				<field name="TEXT">directoryname</field>
+			</shadow>
+		</value>
+		<value name="volsInImg">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		<value name="resx">
+		<shadow type="math_number">
+            <field name="NUM">64</field>
+          </shadow>
+		  </value>
+		  <value name="resY">
+		<shadow type="math_number">
+            <field name="NUM">64</field>
+          </shadow>
+		  </value>
+		</block>
+			  <block type="bv_createprojectfmrslicestimelooping">
+	  <value name="filetype">
+			<shadow type="text">
+				<field name="TEXT">DICOM</field>
+			</shadow>
+		</value>
+		<value name="firstfilename">
+			<shadow type="text">
+				<field name="TEXT">firstfilename</field>
+			</shadow>
+		</value>
+		<value name="nrofvolumes">
+		<shadow type="math_number">
+            <field name="NUM">200</field>
+          </shadow>
+		  </value>
+		  <value name="volskip">
+		<shadow type="math_number">
+            <field name="NUM">2</field>
+          </shadow>
+		  </value>
+		  <value name="createAMR">
+		<shadow type="logic_boolean">
+            <field name="BOOL">true</field>
+          </shadow>
+		  </value>
+		  <value name="nrOfSlices">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  <value name="prestc">
+			<shadow type="text">
+				<field name="TEXT">STCfilename</field>
+			</shadow>
+		</value>
+		 <value name="swapBytes">
+		<shadow type="logic_boolean">
+            <field name="BOOL">false</field>
+          </shadow>
+		  </value>
+		  <value name="resx">
+		<shadow type="math_number">
+            <field name="NUM">64</field>
+          </shadow>
+		  </value>
+		  <value name="resY">
+		<shadow type="math_number">
+            <field name="NUM">64</field>
+          </shadow>
+		  </value>
+		  <value name="nrBytes">
+		<shadow type="math_number">
+            <field name="NUM">2</field>
+          </shadow>
+		  </value>
+		  <value name="savingDir">
+			<shadow type="text">
+				<field name="TEXT">directoryname</field>
+			</shadow>
+		</value>
+		</block>
+		<block type="bv_createprojectvmr">
+	  <value name="filetype">
+			<shadow type="text">
+				<field name="TEXT">DICOM</field>
+			</shadow>
+		</value>
+		<value name="firstfilename">
+			<shadow type="text">
+				<field name="TEXT">firstfilename</field>
+			</shadow>
+		</value>
+		  <value name="nrOfSlices">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		 <value name="isLittleEndian">
+		<shadow type="logic_boolean">
+            <field name="BOOL">false</field>
+          </shadow>
+		  </value>
+		  <value name="resx">
+		<shadow type="math_number">
+            <field name="NUM">256</field>
+          </shadow>
+		  </value>
+		  <value name="resY">
+		<shadow type="math_number">
+            <field name="NUM">256</field>
+          </shadow>
+		  </value>
+		  <value name="nrBytes">
+		<shadow type="math_number">
+            <field name="NUM">2</field>
+          </shadow>
+		  </value>
+		</block>
+		<block type="bv_createprojectamr">
+	  <value name="filetype">
+			<shadow type="text">
+				<field name="TEXT">DICOM</field>
+			</shadow>
+		</value>
+		<value name="firstfilename">
+			<shadow type="text">
+				<field name="TEXT">firstfilename</field>
+			</shadow>
+		</value>
+		  <value name="nrOfSlices">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		 <value name="isLittleEndian">
+		<shadow type="logic_boolean">
+            <field name="BOOL">false</field>
+          </shadow>
+		  </value>
+		  <value name="resx">
+		<shadow type="math_number">
+            <field name="NUM">256</field>
+          </shadow>
+		  </value>
+		  <value name="resY">
+		<shadow type="math_number">
+            <field name="NUM">256</field>
+          </shadow>
+		  </value>
+		  <value name="nrBytes">
+		<shadow type="math_number">
+            <field name="NUM">2</field>
+          </shadow>
+		  </value>
+		</block>
+	  <block type="bv_getX"></block>
+	  <block type="bv_setX"></block>
+	  <block type="bv_getY"></block>
+	  <block type="bv_setY"></block>
+	  <block type="bv_currentdirectory"> </block> 
+	  <block type="bv_pathtosampledata"> </block>
+	  <block type="bv_pathtodata"> </block> 
+	  <block type="bv_versionmajor"> </block> 
+	  <block type="bv_versionminor"> </block> 
+	  <block type="bv_buildnumber"> </block> 
+	  <block type="bv_is64bits"> </block> 
+	  <block type="bv_renamedicomfilesindirectory"> </block> 
+	  <block type="bv_movewindow"> 
+	  <value name="xvalue">
+		<shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+		  </value>
+		  <value name="yvalue">
+		<shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+		  </value>
+		  </block> 
+		<block type = "bv_closedoc"></block>
+    </category>
+	<category name="BV FMR" colour="35">
+	<block type="bv_linkamr">
+	<value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		</block>
+	<block type="bv_fmr_TR">
+	<value name="fmrdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		</block>
+	<block type="bv_fmr_interslicetime">
+	<value name="fmrdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		</block>
+	<block type="bv_fmr_pixelsizeofslicedimx">
+	<value name="fmrdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		</block>
+	<block type="bv_fmr_pixelsizeofslicedimy">
+	<value name="fmrdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		</block>
+	<block type="bv_fmr_slicethickness">
+	<value name="fmrdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		</block>
+	<block type="bv_fmr_gapthickness">
+	<value name="fmrdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		</block>
+	<block type="bv_fmr_timeresolutionverified">
+	<value name="fmrdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		</block>
+	<block type="bv_fmr_voxelresolutionverified">
+	<value name="fmrdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		</block>
+	<block type="bv_fmr_hasslicetimetable">
+		<value name="fmrdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		</block>
+	<block type="bv_correctslicetiming">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		<value name="param1">
+		<shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+		  </value>
+		  <value name="param2">
+		<shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+		  </value>
+		  </block>
+	<block type="bv_correctslicetimingwithsliceorder">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		<value name="param1">
+		<shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+		  </value>
+		  <value name="param2">
+		<shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+		  </value>
+		  </block>
+	<block type="bv_correctslicetimingusingtimetable">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		<value name="param2">
+		<shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+		  </value>
+		  </block>
+	<block type="bv_correctmotion">
+		<value name="fmrdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		<value name="VALUE">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type="bv_correctmotiontargetvolumeinotherrun">
+		<value name="fmrdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		<value name="param1">
+		<shadow type="text">
+            <field name="TEXT">fmralignfile</field>
+          </shadow>
+		  </value>
+		  <value name="param2">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  </block>
+	<block type="bv_fmr_linkstimulationprotocol">
+		<value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		<value name="filename">
+		<shadow type="text">
+            <field name="TEXT">myprt.prt</field>
+          </shadow>
+		  </value>
+		  </block>	
+			<block type="bv_fmr_filenameofpreprocessedfmr">
+			<value name="fmrdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		</block>
+		  <block type="bv_temporalhighpassfilterglmfourier">
+			<value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		<value name="param2">
+		<shadow type="math_number">
+            <field name="NUM">2</field>
+          </shadow>
+		  </value>
+		</block>
+		  <block type="bv_temporalhighpassfilterglmdct">
+			<value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		<value name="param2">
+		<shadow type="math_number">
+            <field name="NUM">2</field>
+          </shadow>
+		  </value>
+		</block>
+		  <block type="bv_temporalhighpassfilterfmr">
+			<value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		<value name="param2">
+		<shadow type="math_number">
+            <field name="NUM">2</field>
+          </shadow>
+		  </value>
+		  <value name="param3">
+		<shadow type="text">
+            <field name="TEXT">cycle</field>
+          </shadow>
+		  </value>
+		</block>
+		<block type="bv_lineartrendremovalfmr">
+		<value name="fmrdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+		  </value>
+		  </block>
+		<block type="bv_temporalgaussiansmoothingfmr">
+		<value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="math_number">
+            <field name="NUM">10</field>
+          </shadow>
+		  </value>
+		  <value name="param2">
+		<shadow type="text">
+            <field name="TEXT">s</field>
+          </shadow>
+		  </value>
+		  </block>
+		<block type="bv_spatialgaussiansmoothingfmr">
+		<value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="math_number">
+            <field name="NUM">2</field>
+          </shadow>
+		  </value>
+		  <value name="param2">
+		<shadow type="text">
+            <field name="TEXT">mm</field>
+          </shadow>
+		  </value>
+		  </block>
+		<block type="bv_adjustmeanintensity">
+		<value name="fmrdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_correctmotionex">
+	<value name="fmrdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		<value name="target">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  <value name="interpolation">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  <value name="usefull">
+		<shadow type="logic_boolean">
+            <field name="BOOL">False</field>
+          </shadow>
+		  </value>
+		  <value name="maxiter">
+		<shadow type="math_number">
+            <field name="NUM">100</field>
+          </shadow>
+		  </value>
+		  <value name="movies">
+		<shadow type="logic_boolean">
+            <field name="BOOL">False</field>
+          </shadow>
+		  </value>
+		  <value name="logfile">
+		<shadow type="logic_boolean">
+            <field name="BOOL">False</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type="bv_correctmotiontargetvolumeinotherrunex">
+	<value name="fmrdoc">
+          <block type="variables_get">
+            <field name="VAR">{fmr}</field>
+          </block>
+        </value>
+		<value name="param1">
+		<shadow type="text">
+            <field name="TEXT">fmralignfile</field>
+          </shadow>
+		  </value>
+		<value name="target">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  <value name="interpolation">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  <value name="usefull">
+		<shadow type="logic_boolean">
+            <field name="BOOL">False</field>
+          </shadow>
+		  </value>
+		  <value name="maxiter">
+		<shadow type="math_number">
+            <field name="NUM">100</field>
+          </shadow>
+		  </value>
+		  <value name="movies">
+		<shadow type="logic_boolean">
+            <field name="BOOL">False</field>
+          </shadow>
+		  </value>
+		  <value name="logfile">
+		<shadow type="logic_boolean">
+            <field name="BOOL">False</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type = "bv_fmr_closedoc"></block>
+	</category>
+	<category name="BV VTC" colour="25">
+	<block type="bv_temporalhighpassfiltervtc">
+			<value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vtc}</field>
+          </block>
+        </value>
+		<value name="param2">
+		<shadow type="math_number">
+            <field name="NUM">2</field>
+          </shadow>
+		  </value>
+		  <value name="param3">
+		<shadow type="text">
+            <field name="TEXT">cycle</field>
+          </shadow>
+		  </value>
+		</block>
+		<block type="bv_lineartrendremovalvtc">
+		<value name="fmrdoc">
+          <block type="variables_get">
+            <field name="VAR">{vtc}</field>
+          </block>
+		  </value>
+		  </block>
+		<block type="bv_temporalgaussiansmoothingvtc">
+		<value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vtc}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="math_number">
+            <field name="NUM">10</field>
+          </shadow>
+		  </value>
+		  <value name="param2">
+		<shadow type="text">
+            <field name="TEXT">s</field>
+          </shadow>
+		  </value>
+		  </block>
+		<block type="bv_spatialgaussiansmoothingvtc">
+		<value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vtc}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="math_number">
+            <field name="NUM">2</field>
+          </shadow>
+		  </value>
+		  <value name="param2">
+		<shadow type="text">
+            <field name="TEXT">mm</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type = "bv_vtc_closedoc"></block>
+		  </category>
+		  <category name="BV MESH" colour="15">
+		  <block type="bv_mesh_temporalhighpassfilterfft"></block>
+		  <block type="bv_mesh_lineartrendremoval"></block>
+		  <block type="bv_mesh_temporalgaussiansmoothing"></block>
+		  <block type="bv_mesh_spatialsmoothing"></block>
+		  <block type="bv_mesh_filename"></block>
+		  <block type="bv_mesh_nrofvertices"></block>
+		  <block type="bv_mesh_morphingupdateinterval"></block>
+		  <block type="bv_mesh_correctforserialcorrelations"></block>
+          <block type="bv_mesh_updatesurfacewindow"></block>
+          <block type="bv_mesh_saveas"></block>
+          <block type="bv_mesh_calculatecurvaturecba"></block>
+          <block type="bv_mesh_smoothcurrentmap"></block>
+          <block type="bv_mesh_inflatemeshtosphere"></block>
+          <block type="bv_mesh_correctinflatedspheremesh"></block>
+          <block type="bv_mesh_mapspheremeshfromstandardsphere"></block>
+          <block type="bv_mesh_setstandardspheretofoldedmesh"></block>
+          <block type="bv_mesh_createmultiscalecurvaturemap"></block>
+          <block type="bv_mesh_createsphericalcoordinatesmapfromsmp"></block>
+          <block type="bv_mesh_smoothmesh"></block>
+          <block type="bv_mesh_smoothrecomesh"></block>
+          <block type="bv_mesh_calculatecurvature"></block>
+          <block type="bv_mesh_inflatemesh"></block>
+          <block type="bv_mesh_createmtcfromvtc"></block>
+          <block type="bv_mesh_linkmtc"></block>
+          <block type="bv_mesh_savemtc"></block>
+          <block type="bv_mesh_cleardesignmatrix"></block>
+          <block type="bv_mesh_loadsinglestudyglmdesignmatrix"></block>
+          <block type="bv_mesh_computesinglestudyglm"></block>
+          <block type="bv_mesh_showglm"></block>
+          <block type="bv_mesh_saveglm"></block>
+		  </category>
+		  <category name="BV MESHSCENE" colour="10">
+		  <block type="bv_meshscene_currentmesh"></block>
+		  <block type="bv_meshscene_viewpointpositionx"></block>
+		  <block type="bv_meshscene_viewpointpositiony"></block>
+		  <block type="bv_meshscene_viewpointpositionz"></block>
+		  <block type="bv_meshscene_viewpointrotationx"></block>
+		  <block type="bv_meshscene_viewpointrotationy"></block>
+		  <block type="bv_meshscene_viewpointrotationz"></block>
+		  <block type="bv_meshscene_sphereresolutioncba"></block>
+		  </category>
+		  <category name="BV VMR" colour="5">
+		  <block type="bv_vmr_linkvtc">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_linkstimulationprotocol">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_vmrvoxelresolutionx">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_vmrvoxelresolutiony">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_vmrvoxelresolutionz">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_extendedtalspaceforvtccreation">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_useboundingboxforvtccreation">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_targetvtcboundingboxxstart">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_targetvtcboundingboxystart">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_targetvtcboundingboxzstart">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_targetvtcboundingboxxend">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_targetvtcboundingboxyend">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_targetvtcboundingboxzend">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_filenameofcurrentvtc">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_meshscene">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type = "bv_vmr_closedoc">
+		  <value name="BV_DOC">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type = "bv_vmr_save">
+		  <value name="BV_DOC">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type = "bv_vmr_autotransformtoisovoxel">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="math_number">
+            <field name="NUM">2</field>
+          </shadow>
+		  </value>
+		  <value name="param2">
+		<shadow type="text">
+            <field name="TEXT">new filename</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type = "bv_vmr_autotransformtosag">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+				<shadow type="text">
+            <field name="TEXT">new filename</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type = "bv_vmr_setvoxelintensity">
+			 <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+		  </value>
+		  <value name="param2">
+		<shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+		  </value>
+		  <value name="param3">
+		<shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+		  </value>
+		  <value name="param4">
+		<shadow type="math_number">
+            <field name="NUM">200</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type = "bv_vmr_getvoxelintensity">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+		  </value>
+		  <value name="param2">
+		<shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+		  </value>
+		  <value name="param3">
+		<shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type = "bv_vmr_correctintensityinhomogeneities">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type = "bv_vmr_autoacpcandtaltransformation">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type = "bv_vmr_createvtcinvmrspace">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="text">
+            <field name="TEXT">FMRfilename.fmr</field>
+          </shadow>
+		  </value>
+		  <value name="param2">
+		<shadow type="text">
+            <field name="TEXT">filename_IA.trf</field>
+          </shadow>
+		  </value>
+		  <value name="param3">
+		<shadow type="text">
+            <field name="TEXT">filename_FA.trf</field>
+          </shadow>
+		  </value>
+		  <value name="param4">
+		<shadow type="text">
+            <field name="TEXT">newVTCfilename.vtc</field>
+          </shadow>
+		  </value>
+		  <value name="param5">
+		<shadow type="math_number">
+            <field name="NUM">2</field>
+          </shadow>
+		  </value>
+		  <value name="param6">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  <value name="param7">
+		<shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+		  </value>
+		  <value name="param8">
+		<shadow type="math_number">
+            <field name="NUM">100</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type = "bv_vmr_createvtcinacpcspace">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="text">
+            <field name="TEXT">FMRfilename.fmr</field>
+          </shadow>
+		  </value>
+		  <value name="param2">
+		<shadow type="text">
+            <field name="TEXT">filename_IA.trf</field>
+          </shadow>
+		  </value>
+		  <value name="param3">
+		<shadow type="text">
+            <field name="TEXT">filename_FA.trf</field>
+          </shadow>
+		  </value>
+		  <value name="param4">
+		<shadow type="text">
+            <field name="TEXT">filename_ACPC.trf</field>
+          </shadow>
+		  </value>
+		  <value name="param5">
+		<shadow type="text">
+            <field name="TEXT">newVTCfilename.vtc</field>
+          </shadow>
+		  </value>
+		  <value name="param6">
+		<shadow type="math_number">
+            <field name="NUM">2</field>
+          </shadow>
+		  </value>
+		  <value name="param7">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  <value name="param8">
+		<shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+		  </value>
+		  <value name="param9">
+		<shadow type="math_number">
+            <field name="NUM">100</field>
+          </shadow>
+		  </value>
+		  </block>
+		   <block type = "bv_vmr_createvtcintalspace">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="text">
+            <field name="TEXT">FMRfilename.fmr</field>
+          </shadow>
+		  </value>
+		  <value name="param2">
+		<shadow type="text">
+            <field name="TEXT">filename_IA.trf</field>
+          </shadow>
+		  </value>
+		  <value name="param3">
+		<shadow type="text">
+            <field name="TEXT">filename_FA.trf</field>
+          </shadow>
+		  </value>
+		  <value name="param4">
+		<shadow type="text">
+            <field name="TEXT">filename_ACPC.trf</field>
+          </shadow>
+		  </value>
+		  <value name="param5">
+		<shadow type="text">
+            <field name="TEXT">filename.tal</field>
+          </shadow>
+		  </value>
+		  <value name="param6">
+		<shadow type="text">
+            <field name="TEXT">newVTCfilename.vtc</field>
+          </shadow>
+		  </value>
+		  <value name="param7">
+		<shadow type="math_number">
+            <field name="NUM">2</field>
+          </shadow>
+		  </value>
+		  <value name="param8">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  <value name="param9">
+		<shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+		  </value>
+		  <value name="param10">
+		<shadow type="math_number">
+            <field name="NUM">100</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type = "bv_vmr_meshscene">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  </category>
+		  <category name="BV VMR GLM" colour="5">
+		  <block type="bv_vmr_correctforserialcorrelations">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_separationofsubjectpredictors">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_separationofstudypredictors">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_ztransformstudies">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_psctransformstudies">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_ztransformstudiesbaselineonly">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		   <block type="bv_vmr_loadsinglestudyglmdesignmatrix">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="text">
+            <field name="TEXT">design.sdm</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_loadmultistudyglmdefinitionfile">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="text">
+            <field name="TEXT">design.mdm</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_computesinglestudyglm">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_computemultistudyglm">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_computerfxglm">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_showglm">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_loadglm">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="text">
+            <field name="TEXT">filename.glm</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_saveglm">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="text">
+            <field name="TEXT">filename.glm</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_clearcontrasts">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_addcontrast">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="text">
+            <field name="TEXT">MyConstrast</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_setcontraststring">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="text">
+            <field name="TEXT">1 -1 0 0</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_setcurrentcontrastatindex">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_setcontrastvalueatindex">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  <value name="param2">
+		<shadow type="math_number">
+            <field name="NUM">-1</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_setcurrentcontrast">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="text">
+            <field name="TEXT">MyConstrast</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_setcontrastvalue">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="text">
+            <field name="TEXT">condition1</field>
+          </shadow>
+		  </value>
+		  <value name="param2">
+		<shadow type="math_number">
+            <field name="NUM">-1</field>
+          </shadow>
+		  </value>
+		  </block>
+		  </category>
+	<category name="BV VMR ROI/VOI" colour="5">
+		<block type="bv_vmr_nrofvois">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_nrofpredictorsinsinglestudydm">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_nroftimepointsinsinglestudydm">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_nrofroicontrasts">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_loadvoifile">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		   <value name="param1">
+		<shadow type="text">
+            <field name="TEXT">filename.voi</field>
+          </shadow>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_hideallvois">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		  <block type="bv_vmr_selectvoi">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  </block>
+		   <block type="bv_vmr_getnameofvoi">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  </block>
+		   <block type="bv_vmr_showselectedvois">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  </block>
+		   <block type="bv_vmr_prepareroicontrasts">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="math_number">
+            <field name="NUM">4</field>
+          </shadow>
+		  </value>
+		  </block>
+		   <block type="bv_vmr_addroicontrast">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		   <value name="param1">
+		<shadow type="text">
+            <field name="TEXT">Contrast Name</field>
+          </shadow>
+		  </value>
+		  <value name="param2">
+		<shadow type="text">
+            <field name="TEXT">1 -1 0 0</field>
+          </shadow>
+		  </value>
+		  </block>
+		   <block type="bv_vmr_computesinglestudyglmforvoi">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  <value name="param2">
+		<shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+		  </value>
+		  <value name="param3">
+		<shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+		  </value>
+		  </block>
+		   <block type="bv_vmr_getnameofroicontrast">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  </block>
+		   <block type="bv_vmr_gettvalueofroicontrast">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  </block>
+		   <block type="bv_vmr_getpvalueofroicontrast">
+		  <value name="bvdoc">
+          <block type="variables_get">
+            <field name="VAR">{vmr}</field>
+          </block>
+		  </value>
+		  <value name="param1">
+		<shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+		  </value>
+		  </block>
+		  </category>
+	<category name="VMR SRF" colour="5">
+		<block type="bv_vmr_loadmesh"></block>
+		<block type="bv_vmr_addmesh"></block>
+		<block type="bv_vmr_savemesh"></block>
+		<block type="bv_vmr_updatesurfacewindow"></block>
+		<block type="bv_vmr_savesnapshotofsurfacewindow"></block>
+		<block type="bv_vmr_linkmtc"></block>
+		<block type="bv_vmr_createmtcfromvtc"></block>
+		<block type="bv_vmr_getmeshscene"></block>
+		<block type="bv_vmr_viewpointtranslationx"></block>
+		<block type="bv_vmr_viewpointtranslationy"></block>
+		<block type="bv_vmr_viewpointtranslationz"></block>
+		<block type="bv_vmr_viewpointrotationx"></block>
+		<block type="bv_vmr_viewpointrotationy"></block>
+		<block type="bv_vmr_viewpointrotationz"></block>
+		</category>
+    <category name="BV PRT" colour="25">		  
+      <block type="bv_prt_clearstimulationprotocol"> </block>
+      <block type="bv_prt_linkstimulationprotocol"> </block>
+      <block type="bv_prt_addcondition"> </block>
+      <block type="bv_prt_setconditioncolor"> </block>
+      <block type="bv_prt_addinterval"> </block>
+      <block type="bv_prt_savestimulationprotocol"> </block>
+      <block type="bv_prt_savevtc"> </block>
+      <block type="bv_prt_stimulationprotocolfile"> </block>
+      <block type="bv_prt_stimulationprotocolexperimentname"> </block>
+      <block type="bv_prt_stimulationprotocolresolution"> </block>
+      <block type="bv_prt_stimulationprotocolbackgroundcolorr"> </block>
+      <block type="bv_prt_stimulationprotocolbackgroundcolorg"> </block>
+      <block type="bv_prt_stimulationprotocolbackgroundcolorb"> </block>
+      <block type="bv_prt_stimulationprotocoltimecoursecolorr"> </block>
+      <block type="bv_prt_stimulationprotocoltimecoursecolorg"> </block>
+      <block type="bv_prt_stimulationprotocoltimecoursecolorb"> </block>
+      <block type="bv_prt_stimulationprotocoltextcolorr"> </block>
+      <block type="bv_prt_stimulationprotocoltextcolorg"> </block>
+      <block type="bv_prt_stimulationprotocoltextcolorb"> </block>
+      <block type="bv_prt_stimulationprotocoltimecoursethickness"> </block>
+    </category>
+    <category name="BV SDM" colour="25">
+      <block type="bv_sdm_firstconfoundpredictorofsdm"> </block>
+      <block type="bv_sdm_sdmcontainsconstantpredictor"> </block>
+      <block type="bv_sdm_cleardesignmatrix"> </block>
+      <block type="bv_sdm_addpredictor"> </block>
+      <block type="bv_sdm_setpredictorvalues"> </block>
+      <block type="bv_sdm_setpredictorvaluesfromcondition"> </block>
+      <block type="bv_sdm_applyhemodynamicresponsefunctiontopredictor"> </block>
+      <block type="bv_sdm_scalepredictorvalues"> </block>
+      <block type="bv_sdm_savesinglestudyglmdesignmatrix"> </block>
+      <block type="bv_sdm_clearmultistudyglmdefinition"> </block>
+      <block type="bv_sdm_addstudyanddesignmatrix"> </block>
+      <block type="bv_sdm_savemultistudyglmdefinitionfile"> </block>
+    </category>
+<category name="Input-Output" colour="55">
+		  <block type="bv_printtolog"> </block> 
+		  	  <block type="bv_browsefile">
+	  <value name="instruction">
+			<shadow type="text">
+				<field name="TEXT">Please select the functional file</field>
+			</shadow>
+		</value>
+		<value name="filter">
+			<shadow type="text">
+				<field name="TEXT">*.vtc; *.fmr</field>
+			</shadow>
+		</value>
+		</block>
+		 <block type="bv_browsedirectory">
+	  <value name="instruction">
+			<shadow type="text">
+				<field name="TEXT">Please select a directory</field>
+			</shadow>
+		</value>
+		</block>
+		  <block type="bv_open_write">
+		  <value name="filename">
+		<shadow type="text">
+		<field name="TEXT">filename</field>
+		</shadow>
+		</value>
+	  <value name="openfile">
+          <block type="variables_get">
+            <field name="VAR">{logfile}</field>
+          </block>
+        </value>
+		</block>
+	  <block type="bv_writetofile">
+		<value name="text">
+			<shadow type="text">
+				<field name="TEXT">abc</field>
+			</shadow>
+		</value>
+				<value name="file">
+          <block type="variables_get">
+            <field name="VAR">{logfile}</field>
+          </block>
+        </value>
+		</block>   
+		<block type="bv_openfile">
+		<value name="filename">
+		<shadow type="text">
+		<field name="TEXT">filename</field>
+		</shadow>
+		</value>
+	  <value name="openfile">
+          <block type="variables_get">
+            <field name="VAR">{logfile}</field>
+          </block>
+        </value>
+		</block>
+		<block type="bv_io_readlinefromfile">
+		  <value name="file">
+          <block type="variables_get">
+            <field name="VAR">{logfile}</field>
+          </block>
+        </value>
+		</block>
+		<block type="bv_io_parseint">
+		  <value name="value">
+		<shadow type="text">
+		<field name="TEXT">My 3 x numbered strings 2</field>
+		</shadow>
+		</value>
+		</block>
+	  <block type="bv_closefile">
+	  <value name="File">
+          <block type="variables_get">
+            <field name="VAR">{logfile}</field>
+          </block>
+        </value>
+		</block> 
+		  </category>
+</xml>
+
+         
+    <script>
+		// Inject blockly
+		var blocklyArea = document.getElementById('blocklyArea');
+		var blocklyDiv = document.getElementById('blocklyDiv');
+		var workspace = Blockly.inject('blocklyDiv',
+			{toolbox: document.getElementById('toolbox')});
+		var onresize = function(e) {
+		// Compute the absolute coordinates and dimensions of blocklyArea.
+			var element = blocklyArea;
+			var x = 0;
+			var y = 0;
+			do {
+				x += element.offsetLeft;
+				y += element.offsetTop;
+				element = element.offsetParent;
+			} while (element);
+			// Position blocklyDiv over blocklyArea.
+			blocklyDiv.style.left = x + 'px';
+			blocklyDiv.style.top = y + 'px';
+			blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+			blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+		};
+		window.addEventListener('resize', onresize, false);
+		onresize();
+		Blockly.svgResize(workspace);
+		
+		function myUpdateFunction(event) {
+			var code = Blockly.JavaScript.workspaceToCode(workspace);
+			document.getElementById('textarea').value = code;
+		}
+		workspace.addChangeListener(myUpdateFunction);
+		// save and load script
+		function SaveScript(){
+			workspace.updateVariableList(true); //Clear unused variable
+			var xml = Blockly.Xml.workspaceToDom(workspace);
+			var xml_text = Blockly.Xml.domToText(xml);
+			var blob = new Blob([xml_text], {type: "text/xml"});
+			saveAs(blob, "saveBlocks.xml");
+			var code = Blockly.JavaScript.workspaceToCode(workspace);
+			code = code.replace(/([^\r])\n/g, "$1\r\n"); // to correct line ending with some browser/OS?
+			var blob2 = new Blob([code],{type: "application/javascript"});//, {type: "text/plain;charset=utf-8"});
+			saveAs(blob2,"saveJavascript.js")
+			//var file = new File([code], "saveJavascript.js", {type: "text/plain;charset=utf-8"});
+			//saveAs(file);	
+		}
+		var control = document.getElementById("input-file");
+		control.addEventListener("change",LoadScript,false);
+		
+		function LoadScript(e){
+			var reader = new FileReader();
+			var file = e.target.files[0];
+			reader.onload = function(e) {
+				var xml_text  = e.target.result;
+				//console.log("File contents: " + xml_text );
+				var xml = Blockly.Xml.textToDom(xml_text);
+				//console.log(typeof xml_text);
+				//console.log(xml)
+				//Blockly.mainWorkspace.clear(); // Clear the workspace before adding new stuff
+				//Blockly.Xml.domToWorkspaceAlign(xml, workspace);
+				//Blockly.Xml.domToWorkspace(xml, workspace);
+				Blockly.Xml.appendDomToWorkspace(xml, workspace);
+				//console.log(typeof xml_text);
+			};
+
+			reader.onerror = function(e) {
+				console.error("File could not be read! Code " + e.target.error.code);
+			};
+
+			// Read file into memory as UTF-16      
+			reader.readAsText(file);
+		};	
+		
+		function loadXml() {
+          var dropdown = document.getElementById('loadDemo');
+          var url = dropdown.options[dropdown.selectedIndex].value;
+		  
+          var xmlText = fetchFile(url);
+          /*if (xmlText !== null) {
+	       var xml = Blockly.Xml.textToDom(xmlText);
+	       Blockly.Xml.appendDomToWorkspace(xml, workspace);
+          }*/
+        }
+
+function fetchFile(xmlUrl) {
+  try {
+    var xmlHttp = new XMLHttpRequest();
+	xmlHttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       // Typical action to be performed when the document is ready:
+       var xml = Blockly.Xml.textToDom(xmlHttp.responseText);
+	   Blockly.Xml.appendDomToWorkspace(xml, workspace);
+    }
+   };
+    xmlHttp.open('GET', xmlUrl, true);
+    xmlHttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlHttp.send('');
+  } catch (e) {
+    // Attempt to diagnose the problem.
+    var msg = 'Error: Unable to load XML data.\n';
+    if (window.location.protocol == 'file:') {
+      msg += 'This may be due to a security restriction preventing\n' +
+          'access when using the file:// protocol.\n' +
+          'Use an http webserver, or a less paranoid browser.\n';
+    }
+    alert(msg + '\n' + e);
+	console.log(xmlUrl)
+    return null;
+  }
+  return xmlHttp.responseText;
+}
+
+
+
+		function ClearWorkspaceScript(){
+			Blockly.mainWorkspace.clear();
+		};
+
+    function SearchToolbox() {
+        var reftoolbox = workspace.toolbox_;    
+        var mysearch = document.getElementById('input-search');
+        if (!mysearch.value){
+            // change previous results by the no results sentence
+            reftoolbox.addBlocks('<label text="No results"></label>',0);
+        } else {
+            var blocklist = reftoolbox.searchBlock(mysearch.value);
+            //reftoolbox.flyout_.setVisible(false);
+            if (blocklist.length >0) {
+                reftoolbox.addBlocks(blocklist,0);
+                reftoolbox.tree_.setSelectedItem(reftoolbox.tree_.getChildAt(0));
+            } else {
+                reftoolbox.addBlocks('<label text="No results"></label>',0);
+            }
+            //reftoolbox.flyout_.setVisible(true);
+            reftoolbox.refreshSelection();
+        }
+    }
+	</script>
+  </body>
+</html>

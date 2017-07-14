@@ -689,3 +689,73 @@ Blockly.Toolbox.TreeSeparator = function(config) {
   Blockly.Toolbox.TreeNode.call(this, null, '', config);
 };
 goog.inherits(Blockly.Toolbox.TreeSeparator, Blockly.Toolbox.TreeNode);
+
+/**
+* A search block function
+* @param {string} a search string
+* @return {Array<block>} Blocks (in 'node' format) with the searchstring in type or tooltip
+*/
+Blockly.Toolbox.prototype.searchBlock =  function(searchstring) {
+
+    var results = [];
+    var searchworkspace = new Blockly.Workspace(); // a headless workspace for searching block attributes
+    recursiveSearch(this.tree_);
+
+    function recursiveSearch(child) { //search the tree recursively
+        if (child.children_) { // check if children_ is not null
+            for (var i=0; i<child.children_.length; i++) { //for each children
+                recursiveSearch(child.children_[i]);
+            }    
+        } else { // we are at a tree leaf, we can search for block
+            if ("blocks" in child) {        
+                // search the block array and the blocks attribute.
+                for (var i = 0; i<child.blocks.length; i++) {
+                    if (typeof(child.blocks[i]) === 'object'){  
+                        if ("type" in child.blocks[i].attributes) { // if it is a block, it has a type attribute, not if it's a label
+                            //search block type 
+                            if (child.blocks[i].attributes.type.value.search(searchstring)>-1) {
+                                results.push(child.blocks[i]);
+                            } else { // search block tooltip
+                                try{
+                                    var searchblock = searchworkspace.newBlock(child.blocks[i].attributes.type.value);
+                                    if (typeof(searchblock.tooltip) === 'string' && searchblock.tooltip.search(searchstring)>-1) {
+                                        results.push(child.blocks[i]);
+                                    }
+                                    searchworkspace.clear();
+                                } catch(err) { 
+                                    //alert(err + ' ' + child.blocks[i].attributes.type.value);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }   
+    }
+    searchworkspace.dispose();
+    return results;
+};
+
+/**
+* A function to add the results of the search function in the toolbox
+* @param {Array<block>} An array of block to add at the indexed node of the tree
+* @param {integer} The index at which the block array should be added (replace existing block array)
+*/ 
+Blockly.Toolbox.prototype.addBlocks = function(blocks,index) {
+    //if (!index) { 
+        // should be checked
+      //  this.tree_.addChild(this.tree_.createNode());
+        //this.tree_.getLastChild().blocks = blocks;
+    //} else {
+        if (typeof(blocks) === 'string'){
+            var oParser = new DOMParser();
+            var dom = oParser.parseFromString(blocks, 'text/xml');
+            this.tree_.children_[index].blocks = [];
+            this.tree_.children_[index].blocks.push(dom.firstChild);
+            
+        } else {
+            this.tree_.children_[index].blocks = blocks;
+        }
+        
+    //}
+}
