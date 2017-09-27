@@ -696,7 +696,8 @@ goog.inherits(Blockly.Toolbox.TreeSeparator, Blockly.Toolbox.TreeNode);
 * @return {Array<block>} Blocks (in 'node' format) with the searchstring in type or tooltip
 */
 Blockly.Toolbox.prototype.searchBlock =  function(searchstring) {
-
+    
+    searchstring = searchstring.toLowerCase();// set everything to lower case
     var results = [];
     var searchworkspace = new Blockly.Workspace(); // a headless workspace for searching block attributes
     recursiveSearch(this.tree_);
@@ -718,7 +719,7 @@ Blockly.Toolbox.prototype.searchBlock =  function(searchstring) {
                             } else { // search block tooltip
                                 try{
                                     var searchblock = searchworkspace.newBlock(child.blocks[i].attributes.type.value);
-                                    if (typeof(searchblock.tooltip) === 'string' && searchblock.tooltip.search(searchstring)>-1) {
+                                    if (typeof(searchblock.tooltip) === 'string' && searchblock.tooltip.toLowerCase().search(searchstring)>-1) {
                                         results.push(child.blocks[i]);
                                     }
                                     searchworkspace.clear();

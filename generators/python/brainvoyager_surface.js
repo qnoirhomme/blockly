@@ -1113,3 +1113,67 @@ Blockly.Python['bv_mesh_saveglm'] = function(block) {
     var code = value_bvdoc + '.SaveGLM('+ value_param1 + ')\n';
     return code;
 };
+
+Blockly.Python['bv_meshscene_loadmesh'] = function(block) {
+	var value_bvdoc = Blockly.Python.valueToCode(block, 'bvdoc', Blockly.Python.ORDER_ATOMIC);
+    var value_param1 = Blockly.Python.valueToCode(block, 'param1', Blockly.Python.ORDER_ATOMIC);
+    var code = value_bvdoc + '.LoadMesh(' + value_param1 + ')';
+    return [code, Blockly.Python.ORDER_FUNCTION_CALL];
+};
+
+Blockly.Python['bv_meshscene_mapspheremeshfromstandardsphere'] = function(block) {
+	var value_bvdoc = Blockly.Python.valueToCode(block, 'bvdoc', Blockly.Python.ORDER_ATOMIC);
+    var code = value_bvdoc + '.MapSphereMeshFromStandardSphere()';
+    return [code, Blockly.Python.ORDER_FUNCTION_CALL];
+};
+
+Blockly.Python['bv_meshscene_setstandardspheretofoldedmesh'] = function(block) {
+	var value_bvdoc = Blockly.Python.valueToCode(block, 'bvdoc', Blockly.Python.ORDER_ATOMIC);
+    var value_param1 = Blockly.Python.valueToCode(block, 'param1', Blockly.Python.ORDER_ATOMIC);
+    var code = value_bvdoc + '.SetStandardSphereToFoldedMesh(' + value_param1 + ')';
+    return [code, Blockly.Python.ORDER_FUNCTION_CALL];
+};
+
+Blockly.Python['bv_meshscene_createstandardspheremesh'] = function(block) {
+	var value_bvdoc = Blockly.Python.valueToCode(block, 'bvdoc', Blockly.Python.ORDER_ATOMIC);
+    var code = value_bvdoc + '.CreateStandardSphereMesh()';
+    return [code, Blockly.Python.ORDER_FUNCTION_CALL];
+};
+
+Blockly.Python['bv_meshscene_cleargroupcbacurvaturefiles'] = function(block) {
+	var value_bvdoc = Blockly.Python.valueToCode(block, 'bvdoc', Blockly.Python.ORDER_ATOMIC);
+    var code = value_bvdoc + '.ClearGroupCBACurvatureFiles()';
+    return code;
+};
+
+Blockly.Python['bv_meshscene_addcurvaturefileforgroupcba'] = function(block) {
+	var value_bvdoc = Blockly.Python.valueToCode(block, 'bvdoc', Blockly.Python.ORDER_ATOMIC);
+    var value_param1 = Blockly.Python.valueToCode(block, 'param1', Blockly.Python.ORDER_ATOMIC);
+    var code = value_bvdoc + '.AddCurvatureFileForGroupCBA(' + value_param1 + ')';
+    return [code, Blockly.Python.ORDER_FUNCTION_CALL];
+};
+
+Blockly.Python['bv_meshscene_runrigidcba'] = function(block) {
+	var value_bvdoc = Blockly.Python.valueToCode(block, 'bvdoc', Blockly.Python.ORDER_ATOMIC);
+    var value_param1 = Blockly.Python.valueToCode(block, 'param1', Blockly.Python.ORDER_ATOMIC);
+    var code = value_bvdoc + '.RunRigidCBA(' + value_param1 + ')';
+    return [code, Blockly.Python.ORDER_FUNCTION_CALL];
+};
+
+Blockly.Python['bv_meshscene_runcba'] = function(block) {
+	var value_bvdoc = Blockly.Python.valueToCode(block, 'bvdoc', Blockly.Python.ORDER_ATOMIC);
+    var code = value_bvdoc + '.RunCBA()';
+    return [code, Blockly.Python.ORDER_FUNCTION_CALL];
+};
+
+Blockly.Python['bv_meshscene_createaveragecurvaturegroupmap'] = function(block) {
+	var value_bvdoc = Blockly.Python.valueToCode(block, 'bvdoc', Blockly.Python.ORDER_ATOMIC);
+    var code = value_bvdoc + '.CreateAverageCurvatureGroupMap()';
+    return [code, Blockly.Python.ORDER_FUNCTION_CALL];
+};
+
+Blockly.Python['bv_meshscene_createaveragefoldedgroupmesh'] = function(block) {
+	var value_bvdoc = Blockly.Python.valueToCode(block, 'bvdoc', Blockly.Python.ORDER_ATOMIC);
+    var code = value_bvdoc + '.CreateAverageFoldedGroupMesh()';
+    return [code, Blockly.Python.ORDER_FUNCTION_CALL];
+};

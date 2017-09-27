@@ -630,6 +630,63 @@ Blockly.Msg.BV_MESH_SAVEGLM = 'mesh.SaveGLM() \n' +
 'Description: Save the GLM that was calculated via mesh.ComputeSingleStudyGLM(). To be used in \n' +
 'BrainVoyager QX 2.8 or higher. See script “MeshMTCSingleStudyGLM.js”. \n' +
 'Parameter 1: Name for general linear model (*.glm) file.';
+Blockly.Msg.BV_MESHSCENE_LOADMESH = 'meshScene.LoadMesh(): Load a mesh from the mesh scene object. The mesh scene object' +
+'can be obtained from the VMR object. This requires BrainVoyager QX 2.8. For older versions, a mesh ' +
+'can also be loaded via a VMR';
+Blockly.Msg.BV_MESHSCENE_MAPSPHEREMESHFROMSTANDARDSPHERE = 'MapSphereMeshFromStandardSphere() \n' +
+'Description: Function of MeshScene object. After the mesh has been inflated to a sphere (*_SPHERE.srf),' +
+'this function can be used to calculate a mapping to a standard sphere with 40962 vertices to reduce the' +
+'number of vertices. To be used in BrainVoyager QX 2.8 or higher.' +
+'Returns 1: A mapping between meshes file (*.ssm).';
+Blockly.Msg.BV_MESHSCENE_SETSTANDARDSPHERETOFOLDEDMESH = 'SetStandardSphereToFoldedMesh()\n' +
+'Description: Apply the mapping (*.ssm) obtained from mesh.MapSphereMeshFromStandardSphere().' +
+'This results in a standard “folded sphere” (*_SPH.srf). To be used in BrainVoyager QX 2.8 or higher.\n' +
+'Parameter 1: Name of folded mesh (*_RECOSM.srf).\n' + 'Returns: Name of “folded sphere” (*_SPH.srf).';
+Blockly.Msg.BV_MESHSCENE_CREATESTANDARDSPHEREMESH = 'CreateStandardSphereMesh()\n' +
+'Description: Create a standard sphere mesh via the mesh scene object. To be used in BrainVoyager QX' +
+'2.8 or higher.';
+Blockly.Msg.BV_MESHSCENE_CLEARGROUPCBACURVATUREFILES = 'ClearGroupCBACurvatureFiles()\n' +
+'Description: Remove any present information about curvature files via the mesh scene object. To be used' +
+'in BrainVoyager QX 2.8 or higher.';
+Blockly.Msg.BV_MESHSCENE_RUNRIGIDCBA = 'RunRigidCBA()\n' +
+'Description: This is a function of the mesh scene object. After all files have been added via AddCurvatureFileForGroupCBA(),' +
+'the surface maps of the subjects can be transformed into group-aligned space' +
+'by this function. The resulting aligned surface maps are automatically saved to disk using the name of' +
+'the original SMP with an added ‘‘_ALIGNED’’ string (*_CURVATURE_ALIGNED_RIGIDONLY.smp).' +
+'The result of rigid alignment is automatically saved in a ”.rga” file that will be used by subsequent' +
+'CBA when using same input curvature SMP files. Then, proceed to next step RunCBA(). To be used in' +
+'BrainVoyager QX 2.8 or higher.\n' +
+'Parameter 1: Name of target curvature file, which can be created via the function' +
+'mesh.CreateSphericalCoordinatesMapFromSMP().\n' +
+'Returns: Success or no success (boolean).';
+Blockly.Msg.BV_MESHSCENE_ADDCURVATUREFILEFORGROUPCBA = 'AddCurvatureFileForGroupCBA()\n' +
+'Description: Inform BrainVoyager about the curvature files that are to be used in the cortex-based alignment.' + 
+'This function of the mesh scene object has to be invoked repeatedly until the files of all subjects' +
+'are declared (see script example “MeshCBA.js”). In order to be consistent with the file names used' +
+'during the CBA procedure, the same subject identifiers should be used for the subject mesh names and' + 
+'surface maps. The program uses the initial part of a map’s name to identify a subject; this can be a' +
+'number (e.g. “362”), text (e.g. “XY”) or a combination of both (e.g. “S16”). To be used in BrainVoyager' +
+'QX 2.8 or higher. Then, proceed to next step RunRigidCBA() or RunCBA().\n' +
+'Parameter 1: Name of curvature file (*_SPH_CURVATURE.smp).\n' +
+'Returns: Success or no success (boolean).';
+Blockly.Msg.BV_MESHSCENE_RUNCBA = 'RunCBA()\n' +
+'Description: This is a function of the mesh scene object. After all files have been added via AddCurvatureFileForGroupCBA(),' +
+'the surface maps of the subjects can be transformed into group-aligned space' +
+'by this function. The resulting aligned surface maps are automatically saved to disk using the name of' +
+'the original SMP with an added ‘‘_ALIGNED’’ string (*_CURVATURE_ALIGNED.smp). To be used in' +
+'BrainVoyager QX 2.8 or higher.\n Returns: Success or no success (boolean).';
+Blockly.Msg.BV_MESHSCENE_CREATEAVERAGECURVATUREGROUPMAP = 'CreateAverageCurvatureGroupMap()\n' +
+'Description: This convenience function can only be called after RunCBA() (with internally stored set of' +
+'.SRF, .SSM, .SMP file names): it creates a group curvature map indicating the quality of alignment; also,' +
+'it saves a ”.cal” file that can be used in the Cortex-Based Alignment dialog. To be used in BrainVoyager' +
+'QX 2.8 or higher.\n Returns: Success or no success (boolean).';
+Blockly.Msg.BV_MESHSCENE_CREATEAVERAGEFOLDEDGROUPMESH = 'CreateAverageFoldedGroupMesh()\n' +
+'Description: This convenience function can only be called after RunCBA() (with internally stored set of' +
+'.SRF, .SSM, .SMP file names): create folded group average cortex using created alignment (SSM) files.' +
+'The function also saves a “.sal” file that can be used in the Cortex-Based Alignment dialog; the function' +
+'only works if names of folded SPH meshes can be derived from curvature names by replacing trailing' +
+'substring with _RECOSM_SPH.srf. To be used in BrainVoyager QX 2.8 or higher.\n Returns: Success or' +
+'no success (boolean).';
 Blockly.Msg.BV_PRT_CLEARSTIMULATIONPROTOCOL = 'Function to start a new stimulation protocol.';
 Blockly.Msg.BV_PRT_LINKSTIMULATIONPROTOCOL = 'Link the stimulation protocol with the provided name to the currently opened VMR file.\n\
 Parameter 1: Name protocol: name of the stimulation protocol (*.prt).';

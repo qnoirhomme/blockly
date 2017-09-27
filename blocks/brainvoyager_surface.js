@@ -3319,7 +3319,7 @@ Blockly.Blocks['bv_mesh_createmtcfromvtc'] = {
 Blockly.Blocks['bv_mesh_linkmtc'] = {
   init: function() {
 	this.appendValueInput('bvdoc')
-        .setCheck('bv_vmr');
+        .setCheck('bv_mesh');
 	this.appendDummyInput()
         .appendField("LinkMTC()");
     this.appendValueInput('param1')
@@ -3336,7 +3336,7 @@ Blockly.Blocks['bv_mesh_linkmtc'] = {
 Blockly.Blocks['bv_mesh_savemtc'] = {
   init: function() {
 	this.appendValueInput('bvdoc')
-        .setCheck('bv_vmr');
+        .setCheck('bv_mesh');
 	this.appendDummyInput()
         .appendField("SaveMTC()");
     this.appendValueInput('param1')
@@ -3353,7 +3353,7 @@ Blockly.Blocks['bv_mesh_savemtc'] = {
 Blockly.Blocks['bv_mesh_cleardesignmatrix'] = {
   init: function() {
 	this.appendValueInput('bvdoc')
-        .setCheck('bv_vmr');
+        .setCheck('bv_mesh');
 	this.appendDummyInput()
         .appendField("ClearDesignMatrix()");
 	this.setInputsInline(true);
@@ -3368,7 +3368,7 @@ Blockly.Blocks['bv_mesh_cleardesignmatrix'] = {
 Blockly.Blocks['bv_mesh_loadsinglestudyglmdesignmatrix'] = {
   init: function() {
 	this.appendValueInput('bvdoc')
-        .setCheck('bv_vmr');
+        .setCheck('bv_mesh');
 	this.appendDummyInput()
         .appendField("LoadSingleStudyGLMDesignMatrix()");
     this.appendValueInput('param1')
@@ -3385,7 +3385,7 @@ Blockly.Blocks['bv_mesh_loadsinglestudyglmdesignmatrix'] = {
 Blockly.Blocks['bv_mesh_computesinglestudyglm'] = {
   init: function() {
 	this.appendValueInput('bvdoc')
-        .setCheck('bv_vmr');
+        .setCheck('bv_mesh');
 	this.appendDummyInput()
         .appendField("ComputeSingleStudyGLM()");
 	this.setInputsInline(true);
@@ -3400,7 +3400,7 @@ Blockly.Blocks['bv_mesh_computesinglestudyglm'] = {
 Blockly.Blocks['bv_mesh_showglm'] = {
   init: function() {
 	this.appendValueInput('bvdoc')
-        .setCheck('bv_vmr');
+        .setCheck('bv_mesh');
 	this.appendDummyInput()
         .appendField("ShowGLM()");
 	this.setInputsInline(true);
@@ -3415,7 +3415,7 @@ Blockly.Blocks['bv_mesh_showglm'] = {
 Blockly.Blocks['bv_mesh_saveglm'] = {
   init: function() {
 	this.appendValueInput('bvdoc')
-        .setCheck('bv_vmr');
+        .setCheck('bv_mesh');
 	this.appendDummyInput()
         .appendField("SaveGLM()");
     this.appendValueInput('param1')
@@ -3426,6 +3426,159 @@ Blockly.Blocks['bv_mesh_saveglm'] = {
     this.setNextStatement(true, null);
     this.setColour(Blockly.Blocks.brain.HUEmesh);
     this.setTooltip(Blockly.Msg.BV_MESH_SAVEGLM);
+    this.setHelpUrl(Blockly.Blocks.brain.http);
+  }
+};
+
+Blockly.Blocks['bv_meshscene_loadmesh'] = {
+  init: function() {
+	this.appendValueInput('bvdoc')
+        .setCheck('bv_meshscene');
+	this.appendDummyInput()
+        .appendField("LoadMesh()");
+    this.appendValueInput('param1')
+        .appendField("File name:")
+        .setCheck('String');
+	this.setInputsInline(true);
+    this.setOutput(true,'boolean');
+    this.setColour(Blockly.Blocks.brain.HUEmeshscene);
+    this.setTooltip(Blockly.Msg.BV_MESHSCENE_LOADMESH);
+    this.setHelpUrl(Blockly.Blocks.brain.http);
+  }
+};
+
+Blockly.Blocks['bv_meshscene_mapspheremeshfromstandardsphere'] = {
+  init: function() {
+	this.appendValueInput('bvdoc')
+        .setCheck('bv_meshscene');
+	this.appendDummyInput()
+        .appendField("MapSphereMeshFromStandardSphere()");
+	this.setInputsInline(true);
+    this.setOutput(true,null);
+    this.setColour(Blockly.Blocks.brain.HUEmeshscene);
+    this.setTooltip(Blockly.Msg.BV_MESHSCENE_MAPSPHEREMESHFROMSTANDARDSPHERE);
+    this.setHelpUrl(Blockly.Blocks.brain.http);
+  }
+};
+
+Blockly.Blocks['bv_meshscene_setstandardspheretofoldedmesh'] = {
+  init: function() {
+	this.appendValueInput('bvdoc')
+        .setCheck('bv_meshscene');
+	this.appendDummyInput()
+        .appendField("SetStandardSphereToFoldedMesh()");
+    this.appendValueInput('param1')
+        .appendField("Folded mesh:")
+        .setCheck('String');
+	this.setInputsInline(true);
+    this.setOutput(true,null);
+    this.setColour(Blockly.Blocks.brain.HUEmeshscene);
+    this.setTooltip(Blockly.Msg.BV_MESHSCENE_SETSTANDARDSPHERETOFOLDEDMESH);
+    this.setHelpUrl(Blockly.Blocks.brain.http);
+  }
+};
+
+Blockly.Blocks['bv_meshscene_createstandardspheremesh'] = {
+  init: function() {
+	this.appendValueInput('bvdoc')
+        .setCheck('bv_meshscene');
+	this.appendDummyInput()
+        .appendField("CreateStandardSphereMesh()");
+	this.setInputsInline(true);
+    this.setOutput(true,null);
+    this.setColour(Blockly.Blocks.brain.HUEmeshscene);
+    this.setTooltip(Blockly.Msg.BV_MESHSCENE_CREATESTANDARDSPHEREMESH);
+    this.setHelpUrl(Blockly.Blocks.brain.http);
+  }
+};
+
+Blockly.Blocks['bv_meshscene_cleargroupcbacurvaturefiles'] = {
+  init: function() {
+	this.appendValueInput('bvdoc')
+        .setCheck('bv_meshscene');
+	this.appendDummyInput()
+        .appendField("ClearGroupCBACurvatureFiles()");
+	this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(Blockly.Blocks.brain.HUEmeshscene);
+    this.setTooltip(Blockly.Msg.BV_MESHSCENE_CLEARGROUPCBACURVATUREFILES);
+    this.setHelpUrl(Blockly.Blocks.brain.http);
+  }
+};
+
+Blockly.Blocks['bv_meshscene_addcurvaturefileforgroupcba'] = {
+  init: function() {
+	this.appendValueInput('bvdoc')
+        .setCheck('bv_meshscene');
+	this.appendDummyInput()
+        .appendField("AddCurvatureFileForGroupCBA()");
+    this.appendValueInput('param1')
+        .appendField("File name:")
+        .setCheck('String');
+	this.setInputsInline(true);
+    this.setOutput(true,'boolean');
+    this.setColour(Blockly.Blocks.brain.HUEmeshscene);
+    this.setTooltip(Blockly.Msg.BV_MESHSCENE_ADDCURVATUREFILEFORGROUPCBA);
+    this.setHelpUrl(Blockly.Blocks.brain.http);
+  }
+};
+
+Blockly.Blocks['bv_meshscene_runrigidcba'] = {
+  init: function() {
+	this.appendValueInput('bvdoc')
+        .setCheck('bv_meshscene');
+	this.appendDummyInput()
+        .appendField("RunRigidCBA()");
+    this.appendValueInput('param1')
+        .appendField("File name:")
+        .setCheck('String');
+	this.setInputsInline(true);
+    this.setOutput(true,'boolean');
+    this.setColour(Blockly.Blocks.brain.HUEmeshscene);
+    this.setTooltip(Blockly.Msg.BV_MESHSCENE_RUNRIGIDCBA);
+    this.setHelpUrl(Blockly.Blocks.brain.http);
+  }
+};
+
+Blockly.Blocks['bv_meshscene_runcba'] = {
+  init: function() {
+	this.appendValueInput('bvdoc')
+        .setCheck('bv_meshscene');
+	this.appendDummyInput()
+        .appendField("RunCBA()");
+	this.setInputsInline(true);
+    this.setOutput(true,'boolean');
+    this.setColour(Blockly.Blocks.brain.HUEmeshscene);
+    this.setTooltip(Blockly.Msg.BV_MESHSCENE_RUNCBA);
+    this.setHelpUrl(Blockly.Blocks.brain.http);
+  }
+};
+
+Blockly.Blocks['bv_meshscene_createaveragecurvaturegroupmap'] = {
+  init: function() {
+	this.appendValueInput('bvdoc')
+        .setCheck('bv_meshscene');
+	this.appendDummyInput()
+        .appendField("CreateAverageCurvatureGroupMap()");
+	this.setInputsInline(true);
+    this.setOutput(true,'boolean');
+    this.setColour(Blockly.Blocks.brain.HUEmeshscene);
+    this.setTooltip(Blockly.Msg.BV_MESHSCENE_CREATEAVERAGECURVATUREGROUPMAP);
+    this.setHelpUrl(Blockly.Blocks.brain.http);
+  }
+};
+
+Blockly.Blocks['bv_meshscene_createaveragefoldedgroupmesh'] = {
+  init: function() {
+	this.appendValueInput('bvdoc')
+        .setCheck('bv_meshscene');
+	this.appendDummyInput()
+        .appendField("CreateAverageFoldedGroupMesh()");
+	this.setInputsInline(true);
+    this.setOutput(true,'boolean');
+    this.setColour(Blockly.Blocks.brain.HUEmeshscene);
+    this.setTooltip(Blockly.Msg.BV_MESHSCENE_CREATEAVERAGEFOLDEDGROUPMESH);
     this.setHelpUrl(Blockly.Blocks.brain.http);
   }
 };
